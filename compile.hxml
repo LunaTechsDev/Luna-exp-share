@@ -20,17 +20,21 @@
 -dce full
 
 # RM Version for Conditional Compilation
--D compileMV
+
 
 # Note you can call an hxml file inside an hxml file for build purposes.
 # For Compiling Separate JavaScript Files
 
+--macro macros.MacroTools.includeJsLib("./src/LunaExpShareParams.js")
 --each
 
 --next
--js dist/TestPlugin.js
-# You can include plugin parameters as a macro in your compile.hxml
---macro macros.MacroTools.includeJsLib("./src/TestPluginParams.js")
--main TestPlugin
+-js dist/Luna_ExpShare.js
+-main LunaExpShare
+
+--next
+-D compileMV
+-js dist/Luna_ExpShareMV.js
+-main LunaExpShare
 
 --cmd haxe -D gamePath=games/KinoCreates --run CleanJs
